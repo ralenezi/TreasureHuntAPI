@@ -21,7 +21,7 @@ app.use((req, res, next) => {
 
 app.use((err, req, res, next) => {
   console.log("🚀 ~ file: app.js ~ line 31 ~ app.use ~ err", err);
-  res.status(err.status ?? 500);
+  res.status(err.status || 500);
   res.json({ message: err.message || "Internal Server Error" });
 });
 
