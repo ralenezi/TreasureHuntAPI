@@ -3,7 +3,7 @@ const db = require("./db/models");
 const cors = require("cors");
 const thingRoutes = require("./api/things/routes");
 const userRoutes = require("./api/users/routes");
-const { localStrategy } = require("./middleware/passport");
+const { localStrategy, jwtStrategy } = require("./middleware/passport");
 const passport = require("passport");
 
 const app = express();
@@ -15,6 +15,7 @@ app.use(express.json());
 // Routes
 app.use(passport.initialize());
 passport.use(localStrategy);
+passport.use(jwtStrategy);
 app.use(userRoutes);
 app.use("/things", thingRoutes);
 
