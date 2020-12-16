@@ -27,7 +27,7 @@ exports.signup = async (req, res, next) => {
 };
 
 exports.signin = (req, res) => {
-  const user = req.body;
+  const { user } = req;
   const payload = {
     //id:req.user.id,
     id: user.id,

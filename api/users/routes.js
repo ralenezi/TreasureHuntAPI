@@ -8,7 +8,7 @@ router.post("/signup", signup);
 
 router.post(
   "/signin",
-  // passport.authenticate("local", { session: false }),
+  passport.authenticate("local", { session: false }),
   signin
 );
 module.exports = router;
